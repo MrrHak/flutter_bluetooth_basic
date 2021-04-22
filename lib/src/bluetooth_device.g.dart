@@ -7,28 +7,21 @@ part of 'bluetooth_device.dart';
 // **************************************************************************
 
 BluetoothDevice _$BluetoothDeviceFromJson(Map<String, dynamic> json) {
-  return BluetoothDevice()
-    ..name = json['name'] as String
-    ..address = json['address'] as String
+  return BluetoothDevice(
+    name: json['name'] as String,
+    address: json['address'] as String,
+  )
     ..type = json['type'] as int
     ..connected = json['connected'] as bool;
 }
 
-Map<String, dynamic> _$BluetoothDeviceToJson(BluetoothDevice instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('name', instance.name);
-  writeNotNull('address', instance.address);
-  writeNotNull('type', instance.type);
-  writeNotNull('connected', instance.connected);
-  return val;
-}
+Map<String, dynamic> _$BluetoothDeviceToJson(BluetoothDevice instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'address': instance.address,
+      'type': instance.type,
+      'connected': instance.connected,
+    };
 
 LineText _$LineTextFromJson(Map<String, dynamic> json) {
   return LineText(
@@ -46,25 +39,16 @@ LineText _$LineTextFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$LineTextToJson(LineText instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('type', instance.type);
-  writeNotNull('content', instance.content);
-  writeNotNull('size', instance.size);
-  writeNotNull('align', instance.align);
-  writeNotNull('weight', instance.weight);
-  writeNotNull('width', instance.width);
-  writeNotNull('height', instance.height);
-  writeNotNull('underline', instance.underline);
-  writeNotNull('linefeed', instance.linefeed);
-  writeNotNull('x', instance.x);
-  writeNotNull('y', instance.y);
-  return val;
-}
+Map<String, dynamic> _$LineTextToJson(LineText instance) => <String, dynamic>{
+      'type': instance.type,
+      'content': instance.content,
+      'size': instance.size,
+      'align': instance.align,
+      'weight': instance.weight,
+      'width': instance.width,
+      'height': instance.height,
+      'underline': instance.underline,
+      'linefeed': instance.linefeed,
+      'x': instance.x,
+      'y': instance.y,
+    };

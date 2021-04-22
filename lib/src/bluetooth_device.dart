@@ -4,12 +4,12 @@ part 'bluetooth_device.g.dart';
 
 @JsonSerializable(includeIfNull: false)
 class BluetoothDevice {
-  BluetoothDevice();
-
   String name;
   String address;
   int type = 0;
   bool connected = false;
+
+  BluetoothDevice({required this.name, required this.address});
 
   factory BluetoothDevice.fromJson(Map<String, dynamic> json) =>
       _$BluetoothDeviceFromJson(json);
@@ -18,18 +18,19 @@ class BluetoothDevice {
 
 @JsonSerializable(includeIfNull: false)
 class LineText {
-  LineText(
-      {this.type, //text,barcode,qrcode,image(base64 string)
-        this.content,
-        this.size = 0,
-        this.align = ALIGN_LEFT,
-        this.weight = 0, //0,1
-        this.width = 0, //0,1
-        this.height = 0, //0,1
-        this.underline = 0, //0,1
-        this.linefeed = 0, //0,1
-        this.x = 0,
-        this.y = 0});
+  LineText({
+    required this.type, //text,barcode,qrcode,image(base64 string)
+    required this.content,
+    this.size = 0,
+    this.align = ALIGN_LEFT,
+    this.weight = 0, //0,1
+    this.width = 0, //0,1
+    this.height = 0, //0,1
+    this.underline = 0, //0,1
+    this.linefeed = 0, //0,1
+    this.x = 0,
+    this.y = 0,
+  });
 
   static const String TYPE_TEXT = 'text';
   static const String TYPE_BARCODE = 'barcode';
